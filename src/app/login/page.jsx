@@ -9,10 +9,25 @@ import {
   Link,
   TextField,
 } from "@heroui/react";
-
+import { authClient } from "@/lib/auth-client";
 const LoginPage = () => {
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+
+    const name =e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const profileUrl = e.target.profileUrl.value;
+
+    const { data, error } = await authClient.signIn.email({
+    email,
+    password,
+    name,
+    profileUrl,
+    callbackURL: "/",
+});
+console.log(data, error)
+
 
     console.log("Form submitted");
   };
