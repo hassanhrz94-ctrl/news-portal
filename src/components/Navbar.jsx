@@ -7,17 +7,21 @@ import { authClient } from "@/lib/auth-client";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const userData = authClient.useSession()
+  const userData = authClient.useSession();
   const user = userData.data?.user;
 
-  const handleSignOut =async()
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-default-200 bg-background/80 backdrop-blur-xl">
       <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
-        {/* Left Side - Logo + Desktop Navigation */}
+
+        {/* Left Side */}
         <div className="flex items-center gap-8">
-          
+
           {/* Mobile Menu Button */}
           <button
             className="rounded-lg p-2 transition hover:bg-default-100 md:hidden"
@@ -122,28 +126,76 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Right Side */}
+        {/* Desktop Right Side */}
         <div className="hidden items-center gap-3 sm:flex">
-          <Link
-            href="/login"
-            className="text-sm font-medium text-default-600 hover:text-primary"
-          >
-            Login
-          </Link>
 
-          <Link
-            href="/register"
-            color="primary"
-            radius="lg"
-            className="font-semibold rounded-2xl text-blue-500"
-          >
-            Register
-          </Link>
+          {user ? (
+            <>
+              {/* User */}
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-default-100"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                  {user.name?.charAt(0)?.toUpperCase() || "U"}
+                </div>
 
+                <span className="max-w-32 truncate">
+                  {user.name || user.email}
+                </span>
+              </Link>
+
+              {/* Sign Out */}
+              <Button
+                color="danger"
+                variant="flat"
+                radius="lg"
+                className="font-semibold"
+                onPress={handleSignOut}
+              >
+                Sign Out
+              </Button>
+            </>
+          ) : (
+            <>
+              {/* Login */}
+              <Link
+                href="/login"
+                className="text-sm font-medium text-default-600 hover:text-primary"
+              >
+                Login
+              </Link>
+
+              {/* Register */}
+              <Button
+                as={Link}
+                href="/register"
+                color="primary"
+                radius="lg"
+                className="font-semibold"
+              >
+                Register
+              </Button>
+            </>
+          )}
+        </div>
+
+        {/* Mobile Profile */}
+        {user && (
           <Link
             href="/profile"
-            className="ml-1 flex h-9 w-9 items-center justify-center rounded-full border border-default-200 bg-default-100 transition hover:bg-default-200"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white sm:hidden"
             aria-label="Profile"
+          >
+            {user.name?.charAt(0)?.toUpperCase() || "U"}
+          </Link>
+        )}
+
+        {!user && (
+          <Link
+            href="/login"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-default-200 bg-default-100 sm:hidden"
+            aria-label="Login"
           >
             <svg
               className="h-5 w-5"
@@ -155,51 +207,24 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M20 21a8 8 0 00-16 0"
+                d="M15 12H3m0 0l4-4m-4 4l4 4"
               />
-              <circle
-                cx="12"
-                cy="7"
-                r="4"
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth={2}
+                d="M15 5v-1a2 2 0 012-2h3a2 2 0 012 2v16a2 2 0 01-2 2h-3a2 2 0 01-2-2v-1"
               />
             </svg>
           </Link>
-        </div>
-
-        {/* Mobile Profile */}
-        <Link
-          href="/profile"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-default-200 bg-default-100 sm:hidden"
-          aria-label="Profile"
-        >
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M20 21a8 8 0 00-16 0"
-            />
-            <circle
-              cx="12"
-              cy="7"
-              r="4"
-              strokeWidth={2}
-            />
-          </svg>
-        </Link>
+        )}
       </header>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="border-t border-default-200 bg-background md:hidden">
           <ul className="mx-auto flex max-w-7xl flex-col px-5 py-4">
-            
+
             <li>
               <Link
                 href="/"
@@ -242,24 +267,62 @@ const Navbar = () => {
 
             {/* Mobile Auth */}
             <div className="mt-3 flex flex-col gap-2 border-t border-default-200 pt-4">
-              <Link
-                href="/login"
-                className="rounded-lg px-3 py-3 font-medium hover:bg-default-100"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login
-              </Link>
 
-              <Button
-                as={Link}
-                href="/register"
-                color="primary"
-                radius="lg"
-                className="font-semibold"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Register
-              </Button>
+              {user ? (
+                <>
+                  {/* Mobile Profile */}
+                  <Link
+                    href="/profile"
+                    className="flex items-center gap-3 rounded-lg px-3 py-3 font-medium hover:bg-default-100"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                      {user.name?.charAt(0)?.toUpperCase() || "U"}
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span>{user.name || "User"}</span>
+                      <span className="text-xs text-default-500">
+                        {user.email}
+                      </span>
+                    </div>
+                  </Link>
+
+                  {/* Mobile Sign Out */}
+                  <Button
+                    color="danger"
+                    variant="flat"
+                    radius="lg"
+                    className="w-full font-semibold"
+                    onPress={handleSignOut}
+                  >
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  {/* Mobile Login */}
+                  <Link
+                    href="/login"
+                    className="rounded-lg px-3 py-3 font-medium hover:bg-default-100"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+
+                  {/* Mobile Register */}
+                  <Button
+                    as={Link}
+                    href="/register"
+                    color="primary"
+                    radius="lg"
+                    className="font-semibold"
+                    onPress={() => setIsMenuOpen(false)}
+                  >
+                    Register
+                  </Button>
+                </>
+              )}
             </div>
           </ul>
         </div>
