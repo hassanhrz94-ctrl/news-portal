@@ -126,15 +126,14 @@ const Navbar = () => {
             Login
           </Link>
 
-          <Button
-            as={Link}
+          <Link
             href="/register"
             color="primary"
             radius="lg"
-            className="font-semibold"
+            className="font-semibold rounded-2xl text-blue-500"
           >
             Register
-          </Button>
+          </Link>
 
           <Link
             href="/profile"
