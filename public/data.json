@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of Artificial Intelligence",
+    "author": "Daniel Carter",
+    "description": "Artificial intelligence is rapidly changing how people work, learn, and communicate across the world.",
+    "category": "Tech",
+    "available_quantity": 15,
+    "image_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995"
+  },
+  {
+    "id": 2,
+    "title": "New Discoveries in Space",
+    "author": "Emily Watson",
+    "description": "Scientists have discovered new information about distant galaxies using advanced space telescopes.",
+    "category": "Science",
+    "available_quantity": 10,
+    "image_url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
+  },
+  {
+    "id": 3,
+    "title": "The Last Journey",
+    "author": "Michael Brown",
+    "description": "A young traveler begins an unforgettable journey that changes his understanding of life and friendship.",
+    "category": "Story",
+    "available_quantity": 20,
+    "image_url": "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+  },
+  {
+    "id": 4,
+    "title": "Quantum Computing Revolution",
+    "author": "Sophia Miller",
+    "description": "Quantum computers are opening new possibilities for solving complex problems much faster than traditional computers.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://images.unsplash.com/photo-1518770660439-4636190af475"
+  },
+  {
+    "id": 5,
+    "title": "Secrets of the Deep Ocean",
+    "author": "Robert Wilson",
+    "description": "Marine researchers have found fascinating new species living deep beneath the ocean surface.",
+    "category": "Science",
+    "available_quantity": 12,
+    "image_url": "https://images.unsplash.com/photo-1469474968028-56623f02e42e"
+  },
+  {
+    "id": 6,
+    "title": "A Letter From Home",
+    "author": "Olivia Taylor",
+    "description": "A mysterious letter leads a young woman to uncover a forgotten chapter of her family's past.",
+    "category": "Story",
+    "available_quantity": 18,
+    "image_url": "https://images.unsplash.com/photo-1455390582262-044cdead277a"
+  },
+  {
+    "id": 7,
+    "title": "The Rise of Smart Cities",
+    "author": "James Anderson",
+    "description": "Modern cities are adopting smart technologies to improve transportation, energy use, and public services.",
+    "category": "Tech",
+    "available_quantity": 14,
+    "image_url": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df"
+  },
+  {
+    "id": 8,
+    "title": "Climate Change and Our Planet",
+    "author": "Emma Davis",
+    "description": "Researchers explain how climate change is affecting ecosystems and what can be done to protect the environment.",
+    "category": "Science",
+    "available_quantity": 9,
+    "image_url": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9"
+  },
+  {
+    "id": 9,
+    "title": "The Forgotten Village",
+    "author": "William Harris",
+    "description": "A journalist discovers a hidden village and the remarkable story behind its disappearance from modern maps.",
+    "category": "Story",
+    "available_quantity": 16,
+    "image_url": "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+  },
+  {
+    "id": 10,
+    "title": "Robots in Everyday Life",
+    "author": "Lucas Martin",
+    "description": "Robotics technology is becoming increasingly common in homes, hospitals, factories, and educational institutions.",
+    "category": "Tech",
+    "available_quantity": 11,
+    "image_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
+  },
+  {
+    "id": 11,
+    "title": "The Human Brain Explained",
+    "author": "Isabella Moore",
+    "description": "Scientists continue to uncover new insights into how the human brain learns, remembers, and makes decisions.",
+    "category": "Science",
+    "available_quantity": 13,
+    "image_url": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063"
+  },
+  {
+    "id": 12,
+    "title": "The Road Beyond Tomorrow",
+    "author": "Henry Thompson",
+    "description": "An inspiring story about courage, ambition, and a young person's determination to build a better future.",
+    "category": "Story",
+    "available_quantity": 22,
+    "image_url": "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+  }
+]
