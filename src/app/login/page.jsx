@@ -17,13 +17,13 @@ const LoginPage = () => {
     const name =e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const profileUrl = e.target.profileUrl.value;
+    const image = e.target.image.value;
 
     const { data, error } = await authClient.signIn.email({
     email,
     password,
     name,
-    profileUrl,
+    image,
     callbackURL: "/",
 });
 console.log(data, error)
@@ -194,7 +194,7 @@ console.log(data, error)
                   </TextField>
 
                   {/* Profile URL */}
-                  <TextField name="profileUrl" type="url">
+                  <TextField name="image" type="url">
                     <Label className="mb-2 font-medium text-slate-700">
                       Profile URL
                     </Label>

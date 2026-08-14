@@ -21,7 +21,7 @@ const router =useRouter()
     const email =e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
-    const profileUrl = e.target.profileUrl.value;
+    const image = e.target.image.value;
 
     const { data, error } = await authClient.signUp.email({
 
@@ -29,7 +29,7 @@ const router =useRouter()
         email,
         password,
         confirmPassword,
-        profileUrl});
+        image});
         console.log({data,error});
 
 if(!error){
@@ -222,7 +222,7 @@ else{
                   </TextField>
 
                   {/* Profile URL */}
-                  <TextField name="profileUrl" type="url">
+                  <TextField name="image" type="url">
                     <Label className="mb-2 font-medium text-slate-700">
                       Profile URL
                     </Label>

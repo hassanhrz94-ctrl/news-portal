@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Link, Button } from "@heroui/react";
+import { Link, Button, Avatar, LinkIcon } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
@@ -137,7 +137,17 @@ const Navbar = () => {
                 className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-default-100"
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
-                  {user.name?.charAt(0)?.toUpperCase() || "U"}
+                 
+                 
+                    <Avatar size="sm">
+                <Avatar.Image
+                  alt="John Doe"
+                  src={user?.image}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+
                 </div>
 
                 <span className="max-w-32 truncate">
@@ -167,15 +177,15 @@ const Navbar = () => {
               </Link>
 
               {/* Register */}
-              <Button
+              <Link
                 as={Link}
                 href="/register"
                 color="primary"
                 radius="lg"
-                className="font-semibold"
+                className="font-semibold text-2xl text-blue-500 rounded-2xl p-3"
               >
                 Register
-              </Button>
+              </Link>
             </>
           )}
         </div>
