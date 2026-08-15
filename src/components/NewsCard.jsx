@@ -2,7 +2,7 @@ import { Button, Card, Chip, Separator } from "@heroui/react";
 import { ArrowBigRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { BiArrowFromRight } from "react-icons/bi";
+import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa6";
 
 
@@ -200,7 +200,7 @@ const NewsCard = ({ n }) => {
             "
           >
             View Details
-            <BiArrowFromRight
+            <BiArrowFromLeft
               size={18}
               className="
                 transition-transform
