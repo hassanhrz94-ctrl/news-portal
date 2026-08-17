@@ -27,6 +27,7 @@ const NewsCard = ({ n }) => {
         grid grid-cols-3 mt-8
       "
     >
+      
       {/* Image Section */}
       <div className="relative w-full aspect-[4/3] overflow-hidden ">
         <Image
@@ -185,7 +186,7 @@ const NewsCard = ({ n }) => {
         </div>
 
         {/* Button */}
-        <Link href={`/all-photos/${n.id}`} className="w-full">
+        <Link href={`/newspapers/${n.id}`} className="w-full">
           <Button
             variant="outline"
             className="
